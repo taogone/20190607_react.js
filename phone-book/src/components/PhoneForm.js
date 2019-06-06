@@ -1,6 +1,7 @@
 // file: /src/components/PhoneForm.js
 
 import React, { Component } from "react";
+import logo from "../logo.svg";
 
 class PhoneForm extends Component {
 	state = {
@@ -25,23 +26,28 @@ class PhoneForm extends Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					placeholder="이름"
-					value={this.state.name}
-					onChange={this.handleChange}
-					name="name"
-				/>
-				<input
-					placeholder="전화번호"
-					value={this.state.phone}
-					onChange={this.handleChange}
-					name="phone"
-				/>
-				<br />
-				<br />
-				<button type="submit">등록</button>
-			</form>
+			<div>
+				<div>
+					<img src={logo} className="App-logo" alt="logo" />
+				</div>
+				<form onSubmit={this.handleSubmit}>
+					<input
+						placeholder="이름"
+						value={this.state.name}
+						onChange={this.handleChange}
+						name="name"
+					/>
+					<input
+						placeholder="전화번호"
+						value={this.state.phone}
+						onChange={this.handleChange}
+						name="phone"
+					/>
+					<br />
+					<br />
+					<button type="submit">등록</button>
+				</form>
+			</div>
 		);
 	}
 }
