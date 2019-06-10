@@ -4,6 +4,8 @@
 	align-items: center;
 	cursor: pointer;
 	transition: none;
+	transition: all 0.15s;
+	user-select: none;
 }
 
 .todo-item:hover {
@@ -28,10 +30,14 @@
 }
 
 .todo-text {
-	text-decoration: line-through;
-	color: #adb5bd;
+	flex: 1; /* check, X를 제외한 다 채우기*/
+	word-break: break-all;
 }
 
+.checked {
+	text-decoration: line-through;
+	color: #abd5bd;
+}
 .check_mark {
 	font-size: 1.5rem;
 	line-height: 1rem;
