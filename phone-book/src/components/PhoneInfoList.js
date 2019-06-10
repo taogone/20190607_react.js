@@ -3,16 +3,26 @@ import React, { Component } from "react";
 import PhoneInfo from "./PhoneInfo";
 
 class PhoneInfoList extends Component {
-	// static defaultProps = {
-	// 	data: []
-	// };
+	static defaultProps = {
+		list: [],
+		onRemove: () => console.warn("onRemove is not defined"),
+		onUpdate: () => console.ware("onUpdate is not defined")
+	};
 
+	shouldComponentUpdate(nextProps, nextState) {
+		return nextProps.data !== this.props.data;
+	}
 	render() {
-		console.log("this.props: ", this.props);
-		const { data } = this.props;
-		console.log("data: ", { data });
-		const list = data.map(info => <PhoneInfo key={info.id} info={info} />);
-		console.log("list: ", { list });
+		console.log("render PhoneInfoList");
+		const { data, onRemove, onUpdate } = this.props;
+		const list = data.map(info =>
+			<PhoneInfo
+				key={info.id}
+				info={info}
+				onRemove={onRemove}
+				onUpdate={onUpdate}
+			/>
+		);
 
 		return (
 			<div>
